@@ -1,0 +1,12 @@
+# Compiled files
+*.vm
+
+# Others
+*.vim
+*.swp
+*.swo
+*.txt~
+*~
+*.d
+.vimrc
+.nvimrc

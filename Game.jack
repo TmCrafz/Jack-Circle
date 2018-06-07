@@ -1,0 +1,26 @@
+
+class Game {
+    field boolean m_isGameRunning;
+    field int m_screenWidth;
+    field int m_screenHeight;
+
+    constructor Game new() {
+        let m_isGameRunning = true;
+        let m_screenWidth = 512;
+        let m_screenHeight = 256;
+        return this;
+    }
+
+    method void run() {
+        while(m_isGameRunning) {
+
+        }
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+}

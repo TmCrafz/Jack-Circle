@@ -1,0 +1,69 @@
+
+class Main {
+
+    function void main() {
+        var Game game;
+        let game = Game.new();
+        do game.run();
+        do game.dispose();
+
+       /*
+       var int screenWidth, screenHeight, posX, posY, inputKey;
+       var boolean isGameRunning;
+       let screenWidth = 512;
+       let screenHeight = 256;
+       let posX = 30;
+       let posY = 100;
+
+       //do Output.printString("Circle Jump");
+       //do Output.println();
+
+       let isGameRunning = true;
+
+       let inputKey = 0;
+       while(isGameRunning) {
+           // Input
+           // W:87 A:65 S:83 D:68
+
+           let inputKey = Keyboard.keyPressed();
+           if (inputKey = 87) {
+               let posY = posY - 1;
+               //do Output.printString("W");
+           }
+           if (inputKey = 83) {
+               let posY = posY + 1;
+               //do Output.printString("S");
+           }
+           if (inputKey = 65) {
+               let posX = posX - 1;
+               //do Output.printString("A");
+           }
+           if (inputKey = 68) {
+               let posX = posX + 1;
+               //do Output.printString("D");
+           }
+
+           if (posX > (screenWidth - 1)) {
+               let posX = 0;
+           }
+           if (posX < 0) {
+               let posX = screenWidth - 1;
+           }
+           if (posY > (screenHeight - 1)) {
+               let posY = 0;
+           }
+           if (posY < 0) {
+               let posY = screenHeight - 1;
+           }
+
+           //do Screen.drawPixel((screenWidth / 2) - 1, (screenHeight / 2) - 1);
+           //do Screen.clearScreen();
+           do Screen.setColor(true);
+           do Screen.drawPixel(posX, posY);
+           //do Sys.wait(5);
+       }
+
+       */
+       return;
+   }
+}

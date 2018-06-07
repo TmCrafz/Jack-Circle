@@ -43,6 +43,29 @@ class Circle {
         return;
     }
 
+    method boolean isCollidingWith(Circle circleB) {
+        var int circleARadius, circleBRadius;
+        var int circleAPosX, circleAPosY, circleBPosX, circleBPosY;
+        var int distanceX, distanceY;
+        var int distance;
+        let circleARadius = m_radius;
+        let circleBRadius = circleB.getRadius();
+        let circleAPosX = m_posX;
+        let circleAPosY = m_posY;
+        let circleBPosX = circleB.getPosX();
+        let circleBPosY = circleB.getPosY();
+        // Distance vec
+        let distanceX = circleAPosX - circleBPosX;
+        let distanceY = circleAPosY - circleBPosY;
+        // The disntance between both circles, calcualted by pythagoras
+        let distance = Math.sqrt((distanceX * distanceX) + (distanceY * distanceY));
+        // If the disntance is smaller then the sum if both radius, its a collsision
+        if (distance < (circleARadius + circleBRadius)) {
+            return true;
+        }
+        return false;
+    }
+
     method void draw() {
         do Screen.drawCircle(m_posX, m_posY, m_radius);
         return;

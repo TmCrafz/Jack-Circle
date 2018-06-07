@@ -20,7 +20,6 @@ class CircleArrayList {
         var Array m_arrNew;
         // Make array larger when its to small
         if (m_curFillSize = m_maxSize) {
-
             let i = 0;
             let newSize = m_maxSize * 2;
             let m_arrNew = Array.new(newSize);
@@ -32,6 +31,7 @@ class CircleArrayList {
             do m_arr.dispose();
             let m_arr = m_arrNew;
         }
+        // Add element at the next empty pos
         let m_arr[m_curFillSize] = circle;
         let m_curFillSize = m_curFillSize + 1;
         return;
@@ -39,6 +39,25 @@ class CircleArrayList {
 
     method Circle at(int i) {
         return m_arr[i];
+    }
+
+    method void removeAt(int removePos) {
+        var Array m_arrNew;
+        var int i, j;
+        let m_arrNew = Array.new(m_maxSize);
+        let i = 0;
+        let j = 0;
+        while(i < size()) {
+            if (~(i = removePos)) {
+                let m_arrNew[j] = m_arr[i];
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        do m_arr.dispose();
+        let m_arr = m_arrNew;
+        let m_curFillSize = m_curFillSize - 1;
+        return;
     }
 
     method void dispose() {

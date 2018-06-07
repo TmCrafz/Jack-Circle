@@ -18,9 +18,12 @@ class Game {
         let m_playerCurVelY = 0;
 
         let m_circles = CircleArrayList.new();
-        do m_circles.add(Circle.new(4, 64, 80));
-        do m_circles.add(Circle.new(4, 96, 80));
-        do m_circles.add(Circle.new(4, 128, 80));
+        /*
+        do m_circles.add(Circle.new(4, 4, 80));
+        do m_circles.add(Circle.new(4, 12, 80));
+        do m_circles.add(Circle.new(4, 20, 80));
+        */
+        //do m_circles.removeAt(2);
         return this;
     }
 

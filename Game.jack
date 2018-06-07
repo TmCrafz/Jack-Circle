@@ -4,19 +4,46 @@ class Game {
     field int m_screenWidth;
     field int m_screenHeight;
     field Circle m_player;
+    field int m_playerVel;
+    field int m_playerCurVelY;
 
     constructor Game new() {
         let m_isGameRunning = true;
         let m_screenWidth = 512;
         let m_screenHeight = 256;
-        let m_player = Circle.new(16, (m_screenWidth / 2) - 1, (m_screenHeight / 2) - 1);
+        let m_player = Circle.new(16, 16, 16);
+        let m_playerVel = 6;
+        let m_playerCurVelY = 0;
         return this;
     }
 
     method void run() {
         while(m_isGameRunning) {
-            do m_player.draw();
+            do handleInput();
+            do draw();
         }
+        return;
+    }
+
+    method void handleInput() {
+        // Input
+        // W:87 A:65 S:83 D:68
+        var int inputKey;
+        let inputKey = Keyboard.keyPressed();
+        // W Key
+        if (inputKey = 87) {
+            let m_playerCurVelY = -m_playerVel;
+            //do Output.printString("W");
+        }
+        // S Key
+        if (inputKey = 83) {
+            let m_playerCurVelY = m_playerVel;
+        }
+        return;
+    }
+
+    method void draw() {
+        do m_player.draw();
         return;
     }
 

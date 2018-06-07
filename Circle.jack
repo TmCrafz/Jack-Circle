@@ -10,6 +10,39 @@ class Circle {
         return this;
     }
 
+    method int getRadius() {
+        return m_radius;
+    }
+
+    method int getPosX() {
+        return m_posX;
+    }
+
+    method int getPosY() {
+        return m_posY;
+    }
+
+    method void setPostionX(int posX) {
+        let m_posX = posX;
+        return;
+    }
+
+    method void setPostionY(int posY) {
+        let m_posY = posY;
+        return;
+    }
+
+    method void setRadius(int radius) {
+        let m_radius = radius;
+        return;
+    }
+
+    method void move(int moveX, int moveY) {
+        do setPostionX(m_posX + moveX);
+        do setPostionY(m_posY + moveY);
+        return;
+    }
+
     method void draw() {
         do Screen.drawCircle(m_posX, m_posY, m_radius);
         return;

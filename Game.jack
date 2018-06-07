@@ -3,22 +3,25 @@ class Game {
     field boolean m_isGameRunning;
     field int m_screenWidth;
     field int m_screenHeight;
+    field Circle m_player;
 
     constructor Game new() {
         let m_isGameRunning = true;
         let m_screenWidth = 512;
         let m_screenHeight = 256;
+        let m_player = Circle.new(16, (m_screenWidth / 2) - 1, (m_screenHeight / 2) - 1);
         return this;
     }
 
     method void run() {
         while(m_isGameRunning) {
-
+            do m_player.draw();
         }
         return;
     }
 
     method void dispose() {
+        do m_player.dispose();
         do Memory.deAlloc(this);
         return;
     }

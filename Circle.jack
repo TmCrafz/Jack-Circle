@@ -1,0 +1,23 @@
+
+class Circle {
+    field int m_radius;
+    field int m_posX, m_posY;
+
+    constructor Circle new(int radius, int posX, int posY) {
+        let m_radius = radius;
+        let m_posX = posX;
+        let m_posY = posY;
+        return this;
+    }
+
+    method void draw() {
+        do Screen.drawCircle(m_posX, m_posY, m_radius);
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+}

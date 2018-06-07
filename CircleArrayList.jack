@@ -1,0 +1,50 @@
+
+class CircleArrayList {
+    field Array m_arr;
+    field int m_maxSize;
+    field int m_curFillSize;
+
+    constructor CircleArrayList new() {
+        let m_maxSize = 2;
+        let m_curFillSize = 0;
+        let m_arr = Array.new(m_maxSize);
+        return this;
+    }
+
+    method int size() {
+        return m_curFillSize;
+    }
+
+    method void add(Circle circle) {
+        var int newSize, i;
+        var Array m_arrNew;
+        // Make array larger when its to small
+        if (m_curFillSize = m_maxSize) {
+
+            let i = 0;
+            let newSize = m_maxSize * 2;
+            let m_arrNew = Array.new(newSize);
+            let m_maxSize = newSize;
+            while(i < size()) {
+                let m_arrNew[i] = m_arr[i];
+                let i = i + 1;
+            }
+            do m_arr.dispose();
+            let m_arr = m_arrNew;
+        }
+        let m_arr[m_curFillSize] = circle;
+        let m_curFillSize = m_curFillSize + 1;
+        return;
+    }
+
+    method Circle at(int i) {
+        return m_arr[i];
+    }
+
+    method void dispose() {
+        do m_arr.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+}

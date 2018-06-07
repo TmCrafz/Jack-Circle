@@ -46,6 +46,13 @@ class Game {
 
     method void update() {
         do m_player.move(0, m_playerCurVelY);
+        // Check if player circle is out of bounds and correct pos. Then stop movement
+        if ((m_player.getPosY() - m_player.getRadius()) < 0) {
+            do m_player.setPostionY(m_player.getRadius());
+        }
+        if ((m_player.getPosY() + m_player.getRadius()) > (m_screenHeight - 1)) {
+            do m_player.setPostionY(m_screenHeight - m_player.getRadius() - 1);
+        }
         return;
     }
 

@@ -12,7 +12,7 @@ class Game {
         let m_screenWidth = 512;
         let m_screenHeight = 256;
         let m_player = Circle.new(16, 16, 16);
-        let m_playerVel = 6;
+        let m_playerVel = 2;
         let m_playerCurVelY = 0;
         return this;
     }
@@ -20,7 +20,9 @@ class Game {
     method void run() {
         while(m_isGameRunning) {
             do handleInput();
+            do update();
             do draw();
+            do Sys.wait(5);
         }
         return;
     }
@@ -42,7 +44,14 @@ class Game {
         return;
     }
 
+    method void update() {
+        do m_player.move(0, m_playerCurVelY);
+        return;
+    }
+
     method void draw() {
+        do Screen.clearScreen();
+        do Screen.setColor(true);
         do m_player.draw();
         return;
     }
